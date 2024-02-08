@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/navbar/Navbar';
+import HeroSlider from './components/slider/HeroSlider';
+import Ads from './components/ads/Ads';
+import CategorySlider from './components/slider/categorySlider/CategorySlider';
+import TopDealsSlider from './components/slider/categorySlider/TopDealsSlider';
+import HighlightSlider from './components/slider/highlightSlider/HighlightSlider';
+import TrendDeals from './components/slider/categorySlider/TrendDeals';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <HeroSlider />
+      <Ads />
+      <CategorySlider />
+      <TopDealsSlider />
+      <HighlightSlider />
+      <TrendDeals />
+    </>
   );
 }
 
