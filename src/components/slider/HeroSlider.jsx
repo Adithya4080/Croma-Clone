@@ -51,4 +51,4 @@ function HeroSlider() {
 }
 
 
-export default HeroSlider
+export default HeroSlider;

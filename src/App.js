@@ -2,10 +2,10 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import HeroSlider from './components/slider/HeroSlider';
 import Ads from './components/ads/Ads';
-import CategorySlider from './components/slider/categorySlider/CategorySlider';
-import TopDealsSlider from './components/slider/categorySlider/TopDealsSlider';
-import HighlightSlider from './components/slider/highlightSlider/HighlightSlider';
-import TrendDeals from './components/slider/categorySlider/TrendDeals';
+import Slider from './components/slider/Slider.jsx/Slider';
+import BestSellDeals from './data/deals/BestSellDeals';
+import Apple from './components/ads/Apple';
+import NewatCroma from './components/ads/NewatCroma'
 
 function App() {
   return (
@@ -13,10 +13,10 @@ function App() {
       <Navbar />
       <HeroSlider />
       <Ads />
-      <CategorySlider />
-      <TopDealsSlider />
-      <HighlightSlider />
-      <TrendDeals />
+      <Slider />
+      <BestSellDeals />
+      <Apple />
+      <NewatCroma />
     </>
   );
 }

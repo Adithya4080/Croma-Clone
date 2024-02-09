@@ -16,7 +16,7 @@ const TrendList = () => {
         <div className='wrapper text-white mt-20'>
             <h2 className='mb-2 font-bold text-2xl'>Trending Deals</h2>         
             <Slider {...settings}>
-            {trendData.map((product, index) => (
+            {trendData.map(product => (
                     <div key={product.id} className='w-1/4 h-1/4 '>
                         <div className='px-5 py-2 mx-3  rounded-lg  bg-black'>
                         <div className='dealimg'>
