@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from "react-slick";
 import { AiFillStar } from "react-icons/ai";
-import  trendData from "../../../data/TrendingDeals.json"
+import  audioDeals from "../../../data/advs/audioDeals.json"
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -10,13 +10,13 @@ const TrendList = () => {
         infinite: false,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1
+        slidesToScroll: 3
     };
     return (
         <div className='wrapper text-white mt-20'>
-            <h2 className='mb-2 font-bold text-2xl'>Trending Deals</h2>         
+            <h2 className='mb-2 font-bold text-2xl'>Deals on Audio</h2>         
             <Slider {...settings}>
-            {trendData.map(product => (
+            {audioDeals.map(product => (
                     <div key={product.id} className='w-1/4 h-1/4 '>
                         <div className='px-5 py-2 mx-3  rounded-lg  bg-black'>
                         <div className='dealimg'>

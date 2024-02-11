@@ -5,7 +5,8 @@ import Ads from './components/ads/Ads';
 import Slider from './components/slider/Slider.jsx/Slider';
 import BestSellDeals from './data/deals/BestSellDeals';
 import Apple from './components/ads/Apple';
-import NewatCroma from './components/ads/NewatCroma'
+import NewatCroma from './components/ads/NewatCroma';
+import AudioDeals from './components/slider/categorySlider/AudioDeals'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <BestSellDeals />
       <Apple />
       <NewatCroma />
+      <AudioDeals />
     </>
   );
 }
