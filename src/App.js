@@ -6,7 +6,10 @@ import Slider from './components/slider/Slider.jsx/Slider';
 import BestSellDeals from './data/deals/BestSellDeals';
 import Apple from './components/ads/Apple';
 import NewatCroma from './components/ads/NewatCroma';
-import AudioDeals from './components/slider/categorySlider/AudioDeals'
+import AudioDeals from './components/slider/categorySlider/AudioDeals';
+import BrandSlider from './components/slider/highlightSlider/BrandSlider';
+import TopCategories from '././components/slider/categorySlider/TopCategories';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
       <Apple />
       <NewatCroma />
       <AudioDeals />
+      <BrandSlider />
+      <TopCategories />
+      <Footer />
     </>
   );
 }
