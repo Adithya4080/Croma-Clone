@@ -2,6 +2,7 @@ import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 
 function HeroSlider() {
     const settings = {
@@ -21,9 +22,11 @@ function HeroSlider() {
     return (
         <div className="slider-container">
             <Slider {...settings}>
-                <div>
-                    <img src={require('../assets/images/Hero-Slider/hero-slider1.gif')} alt='Slider Img 1' />
-                </div>
+                <Link to="/accessories">
+                    <div>
+                        <img src={require('../assets/images/Hero-Slider/hero-slider1.gif')} alt='Slider Img 1' />
+                    </div>
+                </Link>
                 <div>
                     <img src={require('../assets/images/Hero-Slider/hero-slider2.webp')} alt='Slider Img 2' />
                 </div>
