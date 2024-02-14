@@ -4,7 +4,6 @@ import Price from './Price';
 import Brand from './Brand';
 import DeliveryMode from './DeliveryMode';
 import Discount from './Discount';
-import AllFilters from './AllFilters';
 
 function FilterLeft() {
     return (
@@ -14,7 +13,6 @@ function FilterLeft() {
             <Brand />
             <DeliveryMode />
             <Discount />
-            <AllFilters />
         </div>
     )
 }

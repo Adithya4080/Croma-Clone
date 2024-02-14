@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../navbar/Navbar';
 import { Helmet } from 'react-helmet';
 import FilterOptions from './filterOptions/FilterOptions';
+import AccessoriesPage from './accessories/AccessoriesPage';
 
 function Accessories() {
   return (
@@ -15,7 +16,8 @@ function Accessories() {
                 <h3 className='font-bold'>Accessories</h3>
                 <h2 className='font-bold text-2xl'>Accessories(2024)</h2>
             </div>
-            <FilterOptions />
+            <FilterOptions  />
+            <AccessoriesPage />
         </div>
     </div>
   )
