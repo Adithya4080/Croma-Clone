@@ -9,7 +9,7 @@ import Carticon from './Carticon';
 
 function Navbar() {
     return (
-        <div className='bg-black text-white z-50'>
+        <div className='bg-black text-white sticky top-0 z-50'>
             <div className='wrapper flex justify-between p-5 items-center'>
                 <div className='flex items-center'>
                     <Logo />

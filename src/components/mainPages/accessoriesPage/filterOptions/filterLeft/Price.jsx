@@ -44,7 +44,7 @@ function PriceRanges() {
             <div key={range.name} className="mb-2 flex items-center">
               <input
                 type="checkbox"
-                className='form-checkbox h-5 w-5 checked:bg-teal-500'
+                className='h-5 w-5 checked:bg-teal-500'
                 checked={selectedRanges.includes(range.name)}
                 onChange={() => handleRangeChange(range.name)}
               />
