@@ -42,7 +42,7 @@ function Categories() {
 
   return (
     <div className='relative'>
-      <div className='flex items-center mr-4 bg-slate-700 px-3 py-1 rounded-lg cursor-pointer'>
+      <div className='flex items-center mr-4 bg-slate-700 px-3 py-1 rounded-lg cursor-pointer w-fit'>
         <button className={`focus:outline-none ${isDropdownOpen ? 'text-teal-500' : ''}`} onClick={toggleDropdown}>
           Categories
         </button>
@@ -79,6 +79,3 @@ function Categories() {
 
 export default Categories;
 
-
-
-  

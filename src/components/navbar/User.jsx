@@ -127,7 +127,7 @@ const DropdownUser = () => {
                             <FaPowerOff />
                         </div>
                         <div>
-                            <Link to="/" onClick={() => handleOptionClick('Login')}>
+                            <Link to="/auth/signup" onClick={() => handleOptionClick('Login')}>
                                 <h3 className='font-bold'>Login</h3>
                             </Link>
                         </div>
