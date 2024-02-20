@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import accessories from '../../../../data/accessories/Accessories.json';
 import { FaScrewdriverWrench } from "react-icons/fa6";
 import { AiFillStar } from 'react-icons/ai';
-
+import { Cart } from '../../../context/Context';
 
 function AccessoriesPage() {
+    const {addToCart} = useContext(Cart)
+    const addCart = (item) => {
+        addToCart(item)
+    }
     return (
         <div className='wrapper mt-10 grid grid-cols-3 gap-4'style={{ marginTop: '60px' }}>
             {accessories.map((items) => (
@@ -33,7 +37,7 @@ function AccessoriesPage() {
                         <p className='ml-2 text-sm'>{items.delivery}</p>
                     </div>
                     <div className='mt-3'>
-                        <button className='bg-teal-500 text-black rounded-lg py-1 px-3 hover:text-white'>Add to Cart</button>
+                        <button onClick={() => {addCart(items)}} className='bg-teal-500 text-black rounded-lg py-1 px-3 hover:text-white'>Add to Cart</button>
                     </div>
                 </div>
             ))}

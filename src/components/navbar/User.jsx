@@ -9,10 +9,10 @@ import { FaRegHeart } from "react-icons/fa6";
 import { MdDevices } from "react-icons/md";
 import { BiMessageDetail } from "react-icons/bi";
 import { FaPowerOff } from "react-icons/fa6";
-import { UserContext } from '../../App';
+import { Cart } from '../context/Context'
 
 const DropdownUser = () => {
-    const { userData, updateUserData } = useContext(UserContext);
+    const { userData, updateUserData } = useContext(Cart);
     const handleLogout = () => {
         updateUserData({ type: "LOGOUT" });
     };

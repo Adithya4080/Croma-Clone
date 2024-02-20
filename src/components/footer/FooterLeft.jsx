@@ -7,7 +7,7 @@ import { FaLinkedinIn, FaSquareXTwitter  } from "react-icons/fa6";
 
 function FooterLeft() {
     return (
-        <div className='text-white'>
+        <div className=' text-white'>
                 <h3>CONNECT WITH US</h3>
                 <div className='flex items-center bg-white mb-10 max-w-md px-2 py-3 rounded-md'>
                     <input type="text" placeholder="Enter Email ID" className='w-full bg-transparent outline-none border-none px-3 placeholder:text-sm text-black' />

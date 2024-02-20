@@ -32,3 +32,6 @@ body {
   -webkit-box-orient: vertical;
   margin-bottom: 8px;
 }
+.white-bg{
+  background-color: white;
+}

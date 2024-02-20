@@ -5,10 +5,12 @@ import FooterRight from './FooterRight';
 
 function Footer() {
     return (
-        <div className='wrapper flex justify-between py-5'>
-            <FooterLeft />
-            <FooterMiddle />
-            <FooterRight />
+        <div className=' bg-black py-3'>
+            <div className='flex justify-between wrapper'>
+                <FooterLeft />
+                <FooterMiddle />
+                <FooterRight />
+            </div>
         </div>
     )
 }
