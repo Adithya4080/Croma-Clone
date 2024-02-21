@@ -24,7 +24,7 @@ const storeReducer = (state,action) => {
         case "set_Increment":
             return {
                 ...state,
-                products: action.payload,
+                products:action.payload,
             };
 
         case "increment":

@@ -9,7 +9,7 @@ export const Context = ({ children }) => {
 
     // Add item to cart
     const addToCart = (item) => {
-        const existingItemIndex = state.products.findIndex((prod) => prod.type === item.type);
+        const existingItemIndex = state.products.findIndex((prod) => prod.id === item.id);
         let updatedProducts = [];
 
         if (existingItemIndex !== -1) {
@@ -18,7 +18,7 @@ export const Context = ({ children }) => {
                 ...state.products.slice(0, existingItemIndex),
                 updatedItem,
                 ...state.products.slice(existingItemIndex + 1),
-            ]
+            ];
         } else {
             updatedProducts = [...state.products, { ...item, amount: 1 }]
         }
@@ -26,12 +26,12 @@ export const Context = ({ children }) => {
         dispatch({
             type: "add",
             payload: updatedProducts,
-        });
+        });        
     };
     
     // Remove item from cart
     const removeFromCart = (item) => {
-        const updatedCart = state.products.filter((currentProduct) => currentProduct.type !== item.type);
+        const updatedCart = state.products.filter((currentProduct) => currentProduct.id !== item.id);
         updatePrice(updatedCart);
         dispatch({
             type: "remove",
@@ -41,7 +41,7 @@ export const Context = ({ children }) => {
 
     // Update price
     const updatePrice = (products) => {
-        const total = products.reduce((acc,curr) => acc + curr.price * curr.amount, 0);
+        const total = products.reduce((acc,curr) => acc + curr.newPrice * curr.amount, 0);
         dispatch({
             type: "update price",
             payload: total,

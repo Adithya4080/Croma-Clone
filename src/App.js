@@ -6,8 +6,7 @@ import Signup from './components/login/Signup';
 import Login from './components/login/Login';
 import React from 'react';
 import CartPage from './components/cart/CartPage';
-import { Context } from './components/context/Context'
-import AddToCartPage from './components/cart/AddToCartPage';
+import { Context } from './components/context/Context';
 
 export const UserContext = React.createContext();
 
@@ -24,7 +23,6 @@ function App() {
                       <Route path='/auth/create' element={<Signup />} />
                       <Route path='/auth/login' element={<Login />} />
                       <Route path='/cart' element={<CartPage />} />
-                      <Route path='/addtocart' element={<AddToCartPage />} />
                   </Routes>
               </Router>
           </Context>

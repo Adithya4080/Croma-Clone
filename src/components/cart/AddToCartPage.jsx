@@ -1,50 +1,41 @@
-import React, { useEffect } from 'react';
-import Navbar from '../navbar/Navbar';
-import { CiPercent } from "react-icons/ci";
-import { MdArrowForwardIos } from "react-icons/md";
+import React, { useEffect, useContext } from 'react';
+
+import { AiFillStar } from 'react-icons/ai';
+import { Cart } from '../context/Context';
 
 
-function AddToCartPage() {
+const AddToCartPage = ({ items }) => {
+    const { removeFromCart } = useContext(Cart);
+
+    const handleRemove = () => {
+        removeFromCart(items);
+    }
     useEffect(() => {
         document.body.classList.add('white-bg');
-        return () => {
-          document.body.classList.remove('white-bg');
-        };
     }, []);
     return (
         <div>
-            <Navbar />
             <div className='wrapper'>
-                <h2 className='font-bold uppercase mt-10'>Your Cart</h2>
-                <div className='bg-white flex justify-between items-center mt-12 py-6 w-8/12 rounded-sm'>
-                    <div className='flex items-center ml-10'>
-                        <CiPercent className='text-2xl mr-4' />
-                        <h2 className='font-bold text-3xl'>Apply Coupon</h2>
+                <div className='bg-white my-10 p-2 flex '>
+                    <div className='w-1/4'>
+                        <img src={items.img} alt={items.name} />
                     </div>
-                    <MdArrowForwardIos className='mr-10' />
-                </div>
-                <div>
-                    <div>
-                        img
+                    <div className='mr-56 ml-10'>
+                        <p className='title'>{items.title}</p>
+                        <p className='my-4 flex'><AiFillStar /><AiFillStar /><AiFillStar /><AiFillStar /><AiFillStar /></p>
+                        <p className='text-sm'>{items.delivery}</p>
+                        <p className='text-sm'>24 February 2024 |</p>
+                        <p className='text-sm'>Free</p>
+                        <div className='my-2'>
+                        <button className='border border-black font-bold rounded-lg mr-3 py-1 px-4'>Move to Wishlist</button>
+                        <button onClick={() => {handleRemove(items)}} className='border border-black font-bold rounded-lg py-1 px-4'>Remove</button>
                     </div>
-                    <div>
-                        <p>title</p>
-                        <p>icon</p>
-                        <p>delivery</p>
-                        <p>date</p>
-                        <p>free</p>
-                        <div>
-                            <button>move to wishlist</button>
-                            <button>remove</button>
-                        </div>
                     </div>
-                    <div>
-                        <p>newprice</p>
-                        <p>(Incl. all Taxes)</p>
-                        underline
-                        <p>oldprice</p>
-                        <p>save</p>
-                        underline
+                    <div className='text-right'>
+                        <p className='font-bold text-2xl'>₹{items.newPrice}</p>
+                        <p className='underline underline-offset-8 mb-5 whitespace-nowrap text-base'>(Incl. all Taxes)</p>
+                        <del className='font-bold text-2xl'>{items.prevPrice}</del>
+                        <p className='text-slate-500 text-sm underline underline-offset-8'>{items.saving}</p>
                     </div>
                 </div>
             </div>

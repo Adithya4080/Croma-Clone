@@ -5,7 +5,8 @@ import { AiFillStar } from 'react-icons/ai';
 import { Cart } from '../../../context/Context';
 
 function AccessoriesPage() {
-    const {addToCart} = useContext(Cart)
+    const { addToCart } = useContext(Cart)
+    
     const addCart = (item) => {
         addToCart(item)
     }
@@ -27,7 +28,7 @@ function AccessoriesPage() {
                         <p>{items.review}</p>
                     </div>
                     <div className='flex items-center mb-3'>
-                        <h3 className='font-bold text-2xl mr-3'>{items.newPrice}</h3>
+                        <h3 className='font-bold text-2xl mr-3'>₹{items.newPrice}</h3>
                         <del className='mr-2 text-sm'>{items.prevPrice}</del>
                         <small className='mr-2 text-gray-400'>{items.saving}</small>
                         <button className='border border-gray-700 rounded-sm text-xs px-1 font-semibold'>{items.discount}</button>
