@@ -2,14 +2,14 @@ import React, { useState, useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
-import { UserContext } from '../../App';
+import { Cart } from '../context/Context';
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
 
-    const { updateUserData } = useContext(UserContext);
+    const { updateUserData } = useContext(Cart);
 
     const navigate = useNavigate();
 
