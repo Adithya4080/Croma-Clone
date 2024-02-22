@@ -1,6 +1,6 @@
 import Navbar from '../navbar/Navbar';
 import { Helmet } from 'react-helmet';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { IoCartOutline } from "react-icons/io5";
 import { CiPercent } from "react-icons/ci";
 import { MdArrowForwardIos } from "react-icons/md";
@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import Footer from '../footer/Footer';
 import { Cart } from '../context/Context';
 import AddToCartPage from './AddToCartPage';
+import PaymentForm from './PaymentForm';
+import StripeCheckoutButton from './StripeCheckout';
 
 function CartPage() {
   useEffect(() => {
@@ -17,7 +19,13 @@ function CartPage() {
     };
   }, []);
 
-  const { total, products } = useContext(Cart)
+  const { total, products, clearCart } = useContext(Cart);
+  const [showPaymentForm, setShowPaymentForm] = useState(false);
+
+  const handleCheckoutClick = () => {
+    setShowPaymentForm(true);
+  }
+
     return (
       <>
       <Helmet>
@@ -63,7 +71,8 @@ function CartPage() {
                             <p>Total:</p>
                             <p>₹{total.toFixed(2)}</p>
                         </div>
-                        <button className='bg-teal-500 px-20 py-2 rounded-lg cursor-pointer'>Checkout</button>
+                        <button onClick={handleCheckoutClick} className='bg-teal-500 px-20 py-2 rounded-lg cursor-pointer'>Checkout</button>
+                        {showPaymentForm && <StripeCheckoutButton price={total} clearCart={() => setShowPaymentForm(false)} />}
                     </div>
                   </div>
               </div>
