@@ -12,7 +12,7 @@ const StripeCheckoutButton = ({price}) => {
 
     return (
         <StripeCheckout
-            label='Pay Now'
+            label='Pay Now ₹'
             name= 'Croma'
             billingAddress
             shippingAddress

@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import Footer from '../footer/Footer';
 import { Cart } from '../context/Context';
 import AddToCartPage from './AddToCartPage';
-import PaymentForm from './PaymentForm';
 import StripeCheckoutButton from './StripeCheckout';
 
 function CartPage() {
@@ -19,7 +18,7 @@ function CartPage() {
     };
   }, []);
 
-  const { total, products, clearCart } = useContext(Cart);
+  const { total, products } = useContext(Cart);
   const [showPaymentForm, setShowPaymentForm] = useState(false);
 
   const handleCheckoutClick = () => {
