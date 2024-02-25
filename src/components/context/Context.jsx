@@ -48,37 +48,37 @@ export const Context = ({ children }) => {
         });
     };
 
-    // // Decrement item
-    // const setDecrease = (type) => {
-    //     const updatedProducts = state.products.map((currentProduct) => {
-    //         if (currentProduct.type === type && currentProduct.amount > 1) {
-    //             return {...currentProduct, amount: currentProduct.amount - 1 }; 
-    //         }
-    //         return currentProduct;
-    //     });
-    //     updatePrice(updatedProducts);
+    // Decrement item
+    const setDecrease = (type) => {
+        const updatedProducts = state.products.map((currentProduct) => {
+            if (currentProduct.type === type && currentProduct.amount > 1) {
+                return {...currentProduct, amount: currentProduct.amount - 1 }; 
+            }
+            return currentProduct;
+        });
+        updatePrice(updatedProducts);
 
-    //     dispatch({
-    //         type: "set_Decrement",
-    //         payload: updatedProducts,
-    //     });
-    // };
+        dispatch({
+            type: "set_Decrement",
+            payload: updatedProducts,
+        });
+    };
 
-    // // Increment item
-    // const setIncrease = (type) => {
-    //     const updatedProducts = state.products.map((currentProduct) => {
-    //         if (currentProduct.type === type) {
-    //             return { ...currentProduct, amount: currentProduct.amount + 1 };
-    //         }
-    //         return currentProduct;
-    //     });
-    //     updatePrice(updatedProducts);
+    // Increment item
+    const setIncrease = (type) => {
+        const updatedProducts = state.products.map((currentProduct) => {
+            if (currentProduct.type === type) {
+                return { ...currentProduct, amount: currentProduct.amount + 1 };
+            }
+            return currentProduct;
+        });
+        updatePrice(updatedProducts);
 
-    //     dispatch({
-    //         type: "set_Increment",
-    //         payload: updatedProducts,
-    //     });
-    // };
+        dispatch({
+            type: "set_Increment",
+            payload: updatedProducts,
+        });
+    };
 
 
     const calculateTotal = (products) => {
