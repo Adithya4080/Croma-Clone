@@ -3,6 +3,7 @@ import accessories from '../../../../data/accessories/Accessories.json';
 import { FaScrewdriverWrench } from "react-icons/fa6";
 import { AiFillStar } from 'react-icons/ai';
 import { Cart } from '../../../context/Context';
+import { FilterContext } from '../../../filter/FilterContext';
 
 function AccessoriesPage() {
     const { addToCart } = useContext(Cart)
@@ -10,9 +11,15 @@ function AccessoriesPage() {
     const addCart = (item) => {
         addToCart(item)
     }
+
+    const { selectedCategories } = useContext(FilterContext)
+
+    const filteredAccessories = accessories.filter(item => selectedCategories.length === 0 || selectedCategories.includes(item.category));
+
+
     return (
         <div className='wrapper mt-10 grid grid-cols-3 gap-4'style={{ marginTop: '60px' }}>
-            {accessories.map((items) => (
+            {filteredAccessories.map((items) => (
                 <div key={items.id}>
                     <div className='bg-zinc-700 rounded-lg w-10/12 h-3/5'>
                         <img src={items.img} alt={items.name} className='p-14' />

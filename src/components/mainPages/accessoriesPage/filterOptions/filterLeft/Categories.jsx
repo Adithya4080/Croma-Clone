@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { RiArrowDropDownLine, RiCloseCircleLine } from "react-icons/ri";
+import { FilterContext } from '../../../../filter/FilterContext';
 
 const categories = [
     { id: 1, name: 'Mobile Cases & Covers', count: 1080 },
@@ -16,7 +17,6 @@ const categories = [
 
 function Categories() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedCategories, setSelectedCategories] = useState([]);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -33,6 +33,8 @@ function Categories() {
   const removeCategory = (category) => {
     setSelectedCategories((prev) => prev.filter((c) => c !== category));
   };
+
+  const { selectedCategories, setSelectedCategories } = useContext(FilterContext)
 
   return (
     <div className='relative'>
