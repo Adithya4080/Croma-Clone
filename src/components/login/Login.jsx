@@ -45,21 +45,23 @@ function Login() {
                         <Link to='/auth/create'><h2 className='mr-10'>Create Account</h2></Link>
                     </div>
                     <form onSubmit={handleSubmit}>
-                        <div className='mb-1'><p>Enter your Email ID or Phone number</p></div>
+                        <div className='mb-1 pl-2'><p>Enter your Email ID or Phone number</p></div>
                         <div>
                             <input 
                                 onChange={(e) => setUsername(e.target.value)}
                                 value={username}  
                                 type="email" placeholder='Enter your Email ID' 
-                                className='border border-gray-600 pr-56 pl-4 py-2 rounded-lg bg-transparent mb-5'/>
+                                className='border border-gray-600  pl-4 py-2 rounded-lg bg-transparent mb-5 w-full'
+                            />
                         </div>
-                        <div className='mb-1'><p>Enter your Password</p></div>
+                        <div className='mb-1 pl-2'><p>Enter your Password</p></div>
                         <div>
                             <input 
                                 onChange={(e) => setPassword(e.target.value)}
                                 value={password}
                                 type="password" placeholder='Enter your Password' 
-                                className='border border-gray-600 pr-56 pl-4 py-2 rounded-lg bg-transparent mb-5'/>
+                                className='border border-gray-600 w-full pl-4 py-2 rounded-lg bg-transparent mb-5'
+                            />
                         </div>
                         <div className='flex justify-center items-center'>
                             <input type="checkbox" className='h-5 w-5 mr-2' />

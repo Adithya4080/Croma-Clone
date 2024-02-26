@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
-import { Cart } from '../context/Context';
+import { Cart } from '../context/Context'
 
 const StripeCheckoutButton = ({price}) => {
     const publishableKey = 'pk_test_51OmSv7SIMoZdtIVGwp3YpB2qa4SB4kKIkTgckHdzjbZMavTqYFGpG0OjUN1Gf53Kxudh8rnwZtze8zLnnYCdKTut00I2qUIzoe'
