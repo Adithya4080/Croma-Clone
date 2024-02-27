@@ -12,10 +12,13 @@ function AccessoriesPage() {
         addToCart(item)
     }
 
-    const { selectedCategories } = useContext(FilterContext)
+    const { selectedCategories, selectedBrands } = useContext(FilterContext)
 
-    const filteredAccessories = accessories.filter(item => selectedCategories.length === 0 || selectedCategories.includes(item.category));
-
+    // const filteredAccessories = accessories.filter(item => selectedCategories.length === 0 || selectedCategories.includes(item.category));
+    const filteredAccessories = accessories.filter(item =>
+        (selectedCategories.length === 0 || selectedCategories.includes(item.category)) &&
+        (selectedBrands.length === 0 || selectedBrands.includes(item.brand))
+    );
 
     return (
         <div className='wrapper mt-10 grid grid-cols-3 gap-4'style={{ marginTop: '60px' }}>

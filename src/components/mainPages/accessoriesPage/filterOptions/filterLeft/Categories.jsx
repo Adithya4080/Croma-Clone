@@ -16,25 +16,16 @@ const categories = [
 ];
 
 function Categories() {
+
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  const handleCategoryChange = (category) => {
-    setSelectedCategories((prev) =>
-      prev.includes(category)
-        ? prev.filter((c) => c !== category)
-        : [...prev, category]
-    );
-  };
 
-  const removeCategory = (category) => {
-    setSelectedCategories((prev) => prev.filter((c) => c !== category));
-  };
 
-  const { selectedCategories, setSelectedCategories } = useContext(FilterContext)
+  const { selectedCategories, handleCategoryChange, removeCategory } = useContext(FilterContext)
 
   return (
     <div className='relative'>
@@ -64,7 +55,7 @@ function Categories() {
       <div className='flex flex-wrap mt-2'>
         {selectedCategories.map((category) => (
           <div key={category} className='flex items-center bg-teal-500 text-white rounded-full px-2 py-1 m-1'>
-            <span>{category}</span>
+            <p>{category}</p>
             <RiCloseCircleLine className='ml-2 cursor-pointer' onClick={() => removeCategory(category)} />
           </div>
         ))}

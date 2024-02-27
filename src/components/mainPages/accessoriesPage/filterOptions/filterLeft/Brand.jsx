@@ -1,38 +1,36 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { RiArrowDropDownLine, RiCloseCircleLine } from "react-icons/ri";
+import { FilterContext } from '../../../../filter/FilterContext';
 
 const brands = [
-  { id: 1, name: 'Spigen', count: 221 },
-  { id: 2, name: 'Samsung', count: 173 },
+  { id: 1, name: 'Noise', count: 221 },
+  { id: 2, name: 'Nothing', count: 173 },
   { id: 3, name: 'Apple', count: 157 },
-  { id: 4, name: 'Arrow', count: 56 },
-  { id: 5, name: 'Esse', count: 18 },
+  { id: 4, name: 'Ambrane', count: 56 },
+  { id: 5, name: 'Xiaomi', count: 18 },
   { id: 6, name: 'Croma', count: 9 },
-  { id: 7, name: 'Case-Mate', count: 9 },
-  { id: 8, name: 'Uniq', count: 6 },
-  { id: 9, name: 'OnePlus', count: 3 },
-  { id: 10, name: 'Amzer', count: 2 }
+  { id: 7, name: 'Sennheiser', count: 9 },
+  { id: 8, name: 'Sony', count: 6 },
+  { id: 9, name: 'Oneplus', count: 3 },
+  { id: 10, name: 'Sandisk', count: 2 },
+  { id: 11, name: 'Realme', count: 2 },
+  { id: 12, name: 'Philips', count: 2 },
+  { id: 13, name: 'Dell', count: 2 },
+  { id: 14, name: 'Bose', count: 2 },
+  { id: 15, name: 'Soundrevo', count: 2 },
+  { id: 16, name: 'Boult', count: 2 },
+  { id: 17, name: 'Asus', count: 2 }
 ];
 
 function Brands() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedBrands, setSelectedBrands] = useState([]);
+  const {selectedBrands, handleBrandChange, removeBrand} = useContext(FilterContext);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  const handleBrandChange = (brand) => {
-    setSelectedBrands((prev) =>
-      prev.includes(brand)
-        ? prev.filter((b) => b !== brand)
-        : [...prev, brand]
-    );
-  };
 
-  const removeBrand = (brand) => {
-    setSelectedBrands((prev) => prev.filter((b) => b !== brand));
-  };
 
   return (
     <div className='relative'>
@@ -43,7 +41,7 @@ function Brands() {
         <RiArrowDropDownLine className='text-xl' onClick={toggleDropdown} />
       </div>
       {isDropdownOpen && (
-        <div className='absolute top-9 left-8 bg-slate-700 border-none cursor-pointer rounded-lg py-2 px-7 max-h-60 overflow-y-auto'>
+        <div className='custom-scrollbar absolute top-9 left-8 bg-slate-700 border-none cursor-pointer rounded-lg py-2 px-7 max-h-60 overflow-y-auto'>
           {brands.map((brand) => (
             <div key={brand.name} className="mb-2 flex items-center">
               <input
