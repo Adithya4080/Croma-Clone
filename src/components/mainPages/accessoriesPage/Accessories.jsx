@@ -3,6 +3,8 @@ import Navbar from '../../navbar/Navbar';
 import { Helmet } from 'react-helmet';
 import FilterOptions from './filterOptions/FilterOptions';
 import AccessoriesPage from './accessories/AccessoriesPage';
+import Newsletter from '../../footer/Newsletter';
+import Footer from '../../footer/Footer';
 
 function Accessories() {
   return (
@@ -18,6 +20,8 @@ function Accessories() {
             </div>
             <FilterOptions  />
             <AccessoriesPage />
+            <Newsletter />
+            <Footer />
         </div>
     </div>
   )
