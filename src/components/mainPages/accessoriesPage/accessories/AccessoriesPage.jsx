@@ -12,12 +12,13 @@ function AccessoriesPage() {
         addToCart(item)
     }
 
-    const { selectedCategories, selectedBrands } = useContext(FilterContext)
-
+    const { selectedCategories, selectedBrands, selectedRanges, selectedModes } = useContext(FilterContext)
     // const filteredAccessories = accessories.filter(item => selectedCategories.length === 0 || selectedCategories.includes(item.category));
     const filteredAccessories = accessories.filter(item =>
         (selectedCategories.length === 0 || selectedCategories.includes(item.category)) &&
-        (selectedBrands.length === 0 || selectedBrands.includes(item.brand))
+        (selectedBrands.length === 0 || selectedBrands.includes(item.brand)) &&
+        (selectedRanges.length === 0 || selectedRanges.includes(item.range)) &&
+        (selectedModes.length === 0 || selectedModes.includes(item.deliveryMode))
     );
 
     return (

@@ -1,31 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { RiArrowDropDownLine, RiCloseCircleLine } from "react-icons/ri";
+import { FilterContext } from '../../../../filter/FilterContext';
 
 const deliveryModes = [
-  { id: 1, name: 'Express Delivery', count: 221 },
+  { id: 1, name: 'Standard Delivery', count: 221 },
   { id: 2, name: 'Home Delivery', count: 173 }
 ];
 
 function DeliveryModes() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedModes, setSelectedModes] = useState([]);
+  const {selectedModes, handleModeChange, removeMode} = useContext(FilterContext);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
-
-  const handleModeChange = (mode) => {
-    setSelectedModes((prev) =>
-      prev.includes(mode)
-        ? prev.filter((m) => m !== mode)
-        : [...prev, mode]
-    );
-  };
-
-  const removeMode = (mode) => {
-    setSelectedModes((prev) => prev.filter((m) => m !== mode));
-  };
-
   return (
     <div className='relative'>
       <div className='flex items-center mr-4 bg-slate-700 px-3 py-1 rounded-lg cursor-pointer'>

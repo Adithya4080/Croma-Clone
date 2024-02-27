@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { RiArrowDropDownLine, RiCloseCircleLine } from "react-icons/ri";
+import { FilterContext } from '../../../../filter/FilterContext';
 
 const priceRanges = [
-  { id: 1, name: '5,001 - 10,000', count: 41 },
+  { id: 1, name: '5001 - 10000', count: 41 },
   { id: 2, name: '1,501 - 3,000', count: 280 },
-  { id: 3, name: '501 - 1,000', count: 296 },
+  { id: 3, name: '501 - 1000', count: 296 },
   { id: 4, name: '3,001 - 5,000', count: 185 },
   { id: 5, name: '1,001 - 1,500', count: 104 },
   { id: 6, name: '500 & Below', count: 225 }
@@ -12,24 +13,11 @@ const priceRanges = [
 
 function PriceRanges() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedRanges, setSelectedRanges] = useState([]);
+  const {selectedRanges, handleRangeChange, removeRange} = useContext(FilterContext);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
-
-  const handleRangeChange = (range) => {
-    setSelectedRanges((prev) =>
-      prev.includes(range)
-        ? prev.filter((r) => r !== range)
-        : [...prev, range]
-    );
-  };
-
-  const removeRange = (range) => {
-    setSelectedRanges((prev) => prev.filter((r) => r !== range));
-  };
-
   return (
     <div className='relative'>
       <div className='flex items-center mr-4 bg-slate-700 px-3 py-1 rounded-lg cursor-pointer'>

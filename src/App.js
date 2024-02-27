@@ -10,6 +10,7 @@
 
     import { FilterProvider } from './components/filter/FilterContext';
     import Categories from './components/mainPages/accessoriesPage/filterOptions/filterLeft/Categories';
+import NoMatch from './components/mainPages/error/NoMatch';
 
     function App() {
 
@@ -25,6 +26,7 @@
                             <Route path='/auth/create' element={<Signup />} />
                             <Route path='/auth/login' element={<Login />} />
                             <Route path='/cart' element={<CartPage />} />
+                            <Route path='*' element={<NoMatch />} />
                         </Routes>
                     </FilterProvider>
                 </Router>
