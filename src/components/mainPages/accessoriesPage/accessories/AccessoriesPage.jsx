@@ -6,6 +6,7 @@ import { FaScrewdriverWrench } from "react-icons/fa6";
 import { AiFillStar } from 'react-icons/ai';
 import { Cart } from '../../../context/Context';
 import { FilterContext } from '../../../filter/FilterContext';
+import { Link } from 'react-router-dom';
 
 function AccessoriesPage() {
     const [itemsToShow, setItemsToShow] = useState(9);
@@ -32,14 +33,14 @@ function AccessoriesPage() {
         <div className='wrapper mt-10 'style={{ marginTop: '60px' }}>
             <div className='grid grid-cols-3 gap-4'>
                 {filteredAccessories.slice(0, itemsToShow).map((items) => (
-                    <div key={items.id}>
+                    <div key={items.id} className='mb-10'>
                         <div >
                         <LazyLoad className='bg-zinc-700 rounded-lg w-10/12 h-3/5'  threshold={0.95}>
                             <img src={items.img} alt={items.name} className='p-14' loading='lazy' />
                         </LazyLoad>
                         </div>
                         <div>
-                            <h2 className='title mt-5 font-bold'>{items.title}</h2>
+                            <Link key={items.id} to={`/accessories/${items.id}`}><h2 className='title mt-5 font-bold'>{items.title}</h2></Link>
                         </div>
                         <div className='flex mr-1 mb-2'>
                             <div className='text-teal-500 flex items-center mr-1'>
@@ -66,7 +67,7 @@ function AccessoriesPage() {
             </div>
                 {itemsToShow < filteredAccessories.length &&(
                     <div className='flex justify-center items-center'>
-                        <button onClick={showMoreItems} className='text-white border border-none bg-teal-900 px-8  rounded-lg py-2 mt-10'>
+                        <button onClick={showMoreItems} className='text-white border border-white bg-teal-800 px-20 rounded-lg py-2'>
                             View More
                         </button>
                     </div>
