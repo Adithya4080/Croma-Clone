@@ -20,9 +20,9 @@ function Accessories() {
             </div>
             <FilterOptions  />
             <AccessoriesPage />
-            <Newsletter />
-            <Footer />
+            <Newsletter />            
         </div>
+        <Footer />
     </div>
   )
 }
