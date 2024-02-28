@@ -18,7 +18,7 @@ function AccessoriesPage() {
         (selectedCategories.length === 0 || selectedCategories.includes(item.category)) &&
         (selectedBrands.length === 0 || selectedBrands.includes(item.brand)) &&
         (selectedRanges.length === 0 || selectedRanges.includes(item.range)) &&
-        (selectedModes.length === 0 || selectedModes.includes(item.deliveryMode))
+        (selectedModes.length === 0 || selectedModes.includes(item.delivery))
     );
 
     return (
