@@ -34,7 +34,7 @@ function CartPage() {
             <Navbar />
             <div className='wrapper'>
               <h2 className='font-bold uppercase mt-10'>Your Cart</h2>
-              {products.length === 0 ? <div className='flex justify-center items-center mb-20'>
+              {products.length === 0 ? <div className='flex justify-center items-center  my-20'>
                   <div>
                       <IoCartOutline className='text-9xl'/>
                       <p className='font-bold my-4'>Your Cart is Empty</p>
