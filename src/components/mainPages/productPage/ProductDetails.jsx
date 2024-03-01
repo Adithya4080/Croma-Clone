@@ -7,6 +7,7 @@ import { AiFillStar } from 'react-icons/ai';
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import { Cart } from '../../context/Context';
+import Footer from '../../footer/Footer';
 
 function ProductDetails() {
     const { id } = useParams();
@@ -25,7 +26,7 @@ function ProductDetails() {
         </Helmet>
         <Navbar />
         <div className='text-white wrapper'>
-            <div className='flex mt-20'>
+            <div className='flex my-20'>
                 <div className='w-5/12 p-8 bg-zinc-700 rounded-lg h-3/5'>
                     <img src={product.img} alt={product.name} className='p-7' />
                 </div>
@@ -50,11 +51,15 @@ function ProductDetails() {
                         <small className='text-xs'>Will be delivered by 4 March 2024.</small>
                     </div>
                     <div className='mt-3'>
-                        <button onClick={() => {addCart(product)}} className='bg-teal-700 text-black rounded-lg py-1 px-36 hover:text-white'>Add to Cart</button>
+                        <button onClick={() => {addCart(product)}} className='bg-teal-700 text-white rounded-lg py-1 px-36 hover:text-blue-300'>Add to Cart</button>
+                    </div>
+                    <div className='mt-3'>
+                        <Link to='/accessories'><button className='bg-teal-700 text-white rounded-lg py-1 px-24 '>Back to Accessories Page</button></Link>
                     </div>
                 </div>
             </div>            
         </div>
+        <Footer />
         </>
     );
 }

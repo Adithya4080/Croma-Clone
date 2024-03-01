@@ -32,7 +32,7 @@ function CartPage() {
       </Helmet>
         <div>
             <Navbar />
-            <div className='wrapper'>
+            <div className='wrapper w-full'>
               <h2 className='font-bold uppercase mt-10'>Your Cart</h2>
               {products.length === 0 ? <div className='flex justify-center items-center  my-20'>
                   <div>
@@ -43,7 +43,7 @@ function CartPage() {
               </div>:
               <div>
                   <div className='flex justify-between mt-12'>
-                    <div className='w-9/12'>
+                    <div className='w-8/12'>
                         <div className='bg-white flex justify-between items-center  py-6 rounded-sm'>
                             <div className='flex items-center ml-10'>
                                 <CiPercent className='text-2xl mr-4' />
@@ -60,7 +60,7 @@ function CartPage() {
                         )}
                         </div>                        
                     </div>
-                    <div className='bg-white px-4 py-3 h-52'>
+                    <div className='bg-white px-4 py-3 h-56 w-3/12'>
                         <h3 className='mb-3 font-bold text-xl'>Order Summary (1 item)</h3>
                         <div className='flex justify-between my-4'>
                             <p>Original Price:</p>
@@ -70,7 +70,7 @@ function CartPage() {
                             <p>Total:</p>
                             <p>₹{total.toFixed(2)}</p>
                         </div>
-                        <button onClick={handleCheckoutClick} className='bg-teal-500 px-20 py-2 rounded-lg cursor-pointer'>Checkout</button>
+                        <button onClick={handleCheckoutClick} className='bg-teal-500 px-20 py-2 rounded-lg cursor-pointer mb-1'>Checkout</button>
                         {showPaymentForm && <StripeCheckoutButton price={total} clearCart={() => setShowPaymentForm(false)} />}
                     </div>
                   </div>

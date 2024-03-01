@@ -26,10 +26,10 @@ const AddToCartPage = ({ items }) => {
                         <p className='text-sm'>{items.delivery}</p>
                         <p className='text-sm'>24 February 2024 |</p>
                         <p className='text-sm'>Free</p>
-                        <div className='my-2'>
-                        <button className='border border-black font-bold rounded-lg mr-3 py-1 px-4'>Move to Wishlist</button>
-                        <button onClick={() => {handleRemove(items)}} className='border border-black font-bold rounded-lg py-1 px-4'>Remove</button>
-                    </div>
+                        <div className='my-2 flex'>
+                            <button className='border border-black font-bold rounded-lg mr-3 py-1 px-4 whitespace-nowrap hover:bg-teal-500 hover:text-white'>Move to Wishlist</button>
+                            <button onClick={() => {handleRemove(items)}} className='border border-black font-bold rounded-lg py-1 px-4 hover:bg-teal-500 hover:text-white'>Remove</button>
+                        </div>
                     </div>
                     <div className='text-right'>
                         <p className='font-bold text-2xl'>₹{items.newPrice}</p>
