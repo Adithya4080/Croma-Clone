@@ -3,15 +3,16 @@
 // export const FilterContext = React.createContext();
 
 // FilterContext.js
-import React from 'react';
+import React, {useState} from 'react';
 
 export const FilterContext = React.createContext();
 
 export const FilterProvider = ({ children }) => {
-  const [selectedCategories, setSelectedCategories] = React.useState([]);
-  const [selectedBrands, setSelectedBrands] = React.useState([]);
-  const [selectedRanges, setSelectedRanges] = React.useState([]);
-  const [selectedModes, setSelectedModes] = React.useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [selectedRanges, setSelectedRanges] = useState([]);
+  const [selectedModes, setSelectedModes] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleCategoryChange = (category) => {
     setSelectedCategories((prev) =>
@@ -59,6 +60,10 @@ export const FilterProvider = ({ children }) => {
     setSelectedModes((prev) => prev.filter((m) => m !== mode));
   };
 
+  const handleSearchChange = (term) => {
+    setSearchTerm(term);
+  }
+
   return (
     <FilterContext.Provider
       value={{
@@ -66,10 +71,12 @@ export const FilterProvider = ({ children }) => {
         selectedBrands,
         selectedRanges,
         selectedModes,
+        searchTerm,
         handleCategoryChange,
         handleBrandChange,
         handleRangeChange,
         handleModeChange,
+        handleSearchChange,
         removeCategory,
         removeBrand,
         removeRange,
