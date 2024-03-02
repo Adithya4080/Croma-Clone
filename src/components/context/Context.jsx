@@ -9,6 +9,10 @@ export const Context = ({ children }) => {
     const [state, dispatch] = useReducer(storeReducer, initialState);
     const [showLoginPrompt, setShowLoginPrompt] = useState(false);
 
+    const updateLocalStorage = (updatedProducts) => {
+        localStorage.setItem("cart_items", JSON.stringify(updatedProducts))
+    }
+
     // Add item to cart
     const addToCart = (item) => {
         if (userData) {
@@ -26,6 +30,7 @@ export const Context = ({ children }) => {
                 updatedProducts = [...state.products, { ...item, amount: 1 }]
             }
             updatePrice(updatedProducts);
+            updateLocalStorage(updatedProducts);
             dispatch({
                 type: "add",
                 payload: updatedProducts,
@@ -44,6 +49,7 @@ export const Context = ({ children }) => {
     const removeFromCart = (item) => {
         const updatedCart = state.products.filter((currentProduct) => currentProduct.id !== item.id);
         updatePrice(updatedCart);
+        updateLocalStorage(updatedCart);
         dispatch({
             type: "remove",
             payload: updatedCart
@@ -151,7 +157,15 @@ export const Context = ({ children }) => {
     };
 
     useEffect(() => {
-        setUserData(JSON.parse(localStorage.getItem("user_data")));      
+        setUserData(JSON.parse(localStorage.getItem("user_data")));
+        
+        const storedCartItems = JSON.parse(localStorage.getItem("cart_items"));
+        if (storedCartItems) {
+            dispatch({
+                type: "initialize_cart",
+                payload: storedCartItems
+            });
+        }
     }, []);
 
     // clear cart

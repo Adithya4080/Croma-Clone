@@ -14,6 +14,11 @@ const storeReducer = (state,action) => {
                 ...state,
                 products:action.payload
             };
+        case "initialize_cart":
+            return{
+                ...state,
+                products: action.payload,
+            };
         case "update price":
             return {
                 ...state,
@@ -36,9 +41,13 @@ const storeReducer = (state,action) => {
             };
         case "clearCart":
             return initialState;
+
         
         default:
-            throw Error("Cannot match case in reducer")
+            // Error("Cannot match case in reducer")
+            console.error(`Unhandled action type: ${action.type}`);
+            return state;
+        
     }
 }
 export default storeReducer;
