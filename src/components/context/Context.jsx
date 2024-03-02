@@ -1,33 +1,44 @@
 import React, { useReducer, createContext, useEffect, useState } from 'react';
 import { initialState } from './Reducer';
 import storeReducer from './Reducer';
+import LoginPrompt from '../login/LoginPrompt';
 
 export const Cart = createContext();
 
 export const Context = ({ children }) => {
     const [state, dispatch] = useReducer(storeReducer, initialState);
+    const [showLoginPrompt, setShowLoginPrompt] = useState(false);
 
     // Add item to cart
     const addToCart = (item) => {
-        const existingItemIndex = state.products.findIndex((prod) => prod.id === item.id);
-        let updatedProducts = [];
+        if (userData) {
+            const existingItemIndex = state.products.findIndex((prod) => prod.id === item.id);
+            let updatedProducts = [];
 
-        if (existingItemIndex !== -1) {
-            const updatedItem = {...state.products[existingItemIndex], amount: state.products[existingItemIndex].amount + 1 };
-            updatedProducts = [
-                ...state.products.slice(0, existingItemIndex),
-                updatedItem,
-                ...state.products.slice(existingItemIndex + 1),
-            ];
+            if (existingItemIndex !== -1) {
+                const updatedItem = {...state.products[existingItemIndex], amount: state.products[existingItemIndex].amount + 1 };
+                updatedProducts = [
+                    ...state.products.slice(0, existingItemIndex),
+                    updatedItem,
+                    ...state.products.slice(existingItemIndex + 1),
+                ];
+            } else {
+                updatedProducts = [...state.products, { ...item, amount: 1 }]
+            }
+            updatePrice(updatedProducts);
+            dispatch({
+                type: "add",
+                payload: updatedProducts,
+            }); 
         } else {
-            updatedProducts = [...state.products, { ...item, amount: 1 }]
-        }
-        updatePrice(updatedProducts);
-        dispatch({
-            type: "add",
-            payload: updatedProducts,
-        });        
+            setShowLoginPrompt(true);
+        }       
     };
+    const closeLoginPrompt = () => {
+    // Function to close the login prompt
+    setShowLoginPrompt(false);
+};
+
     
     // Remove item from cart
     const removeFromCart = (item) => {
@@ -160,11 +171,16 @@ export const Context = ({ children }) => {
         incrementItem,
         decrementItem,
         clearCart,
+        closeLoginPrompt 
     };
 
     return (
         <Cart.Provider value={value}>
             {children}
+            {showLoginPrompt && (
+                // Render a login prompt component when the user is not logged in
+                <LoginPrompt closeLoginPrompt={closeLoginPrompt} />
+            )}
         </Cart.Provider>
     );
 };

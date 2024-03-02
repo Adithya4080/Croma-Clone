@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 function AccessoriesPage() {
     const [itemsToShow, setItemsToShow] = useState(9);
-    const { addToCart } = useContext(Cart)
+    const { addToCart } = useContext(Cart);
     
     const addCart = (item) => {
         addToCart(item)
