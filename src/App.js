@@ -10,6 +10,8 @@ import { Context } from './components/context/Context';
 import { FilterProvider } from './components/filter/FilterContext';
 import NoMatch from './components/mainPages/error/NoMatch';
 import ProductDetails from './components/mainPages/productPage/ProductDetails';
+import Success from './components/payment/Success';
+import Cancel from './components/payment/Cancel';
 
     function App() {
 
@@ -25,6 +27,8 @@ import ProductDetails from './components/mainPages/productPage/ProductDetails';
                             <Route path='/auth/create' element={<Signup />} />
                             <Route path='/auth/login' element={<Login />} />
                             <Route path='/cart' element={<CartPage />} />
+                            <Route path='/success' element={<Success />} />
+                            <Route path='/cancel' element={<Cancel />} />
                             <Route path='*' element={<NoMatch />} />
                         </Routes>
                     </FilterProvider>
