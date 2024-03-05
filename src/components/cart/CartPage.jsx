@@ -87,7 +87,7 @@ function CartPage() {
                         )}
                         </div>                        
                     </div>
-                    <div className='bg-white px-4 py-3 h-56 w-3/12'>
+                    <div className='bg-white px-4 py-3 h-56 w-3/12 sticky top-20'>
                         <h3 className='mb-3 font-bold text-xl'>Order Summary ({products.length} items)</h3>
                         <div className='flex justify-between my-4'>
                             <p>Original Price:</p>

@@ -37,7 +37,8 @@ const AddToCartPage = ({ items }) => {
                         <del className='font-bold text-2xl'>{items.prevPrice}</del>
                         <p className='text-slate-500 text-sm underline underline-offset-8'>{items.saving}</p>
                         <div className='mt-5 whitespace-nowrap'>
-                            <button className="text-2xl font-bold  bg-teal-500 mr-2 px-1" onClick={() => decrementItem(items.id)}>-</button>
+                            {/* <span className='font-bold mr-1'>Qty:</span> */}
+                            <button className="text-2xl font-bold  bg-teal-500 mr-2 px-2" onClick={() => decrementItem(items.id)}>-</button>
                             <span className="text-lg font-bold mr-2">{items.amount}</span>
                             <button  className="text-2xl font-bold  bg-teal-500 px-1" onClick={() => incrementItem(items.id)}>+</button>
                         </div>
