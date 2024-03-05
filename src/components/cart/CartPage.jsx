@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../footer/Footer';
 import { Cart } from '../context/Context';
 import AddToCartPage from './AddToCartPage';
+import {loadStripe} from '@stripe/stripe-js';
 import StripeCheckoutButton from './StripeCheckout';
 
 function CartPage() {
@@ -24,6 +25,32 @@ function CartPage() {
   const handleCheckoutClick = () => {
     setShowPaymentForm(true);
   }
+
+  // const makePayment = async()=>{
+  //   const stripe = await loadStripe("pk_test_51OmSv7SIMoZdtIVGwp3YpB2qa4SB4kKIkTgckHdzjbZMavTqYFGpG0OjUN1Gf53Kxudh8rnwZtze8zLnnYCdKTut00I2qUIzoe");
+
+  //   const body = {
+  //     products: products
+  //   }
+  //   const headers = {
+  //     "Content-Type":"application/json"
+  //   }
+  //   const response = await fetch("http://localhost:6000/api/create-checkour-session",{
+  //     method: "POST",
+  //     headers: headers,
+  //     body: JSON.stringify(body)
+  //   });
+
+  //   const session = await response.json();
+    
+  //   const result = stripe.redirectToCheckout({
+  //     sessionId:session.id
+  //   })
+
+  //   if(result.error){
+  //     console.log(result.error);
+  //   }
+  // }
 
     return (
       <>
@@ -61,7 +88,7 @@ function CartPage() {
                         </div>                        
                     </div>
                     <div className='bg-white px-4 py-3 h-56 w-3/12'>
-                        <h3 className='mb-3 font-bold text-xl'>Order Summary (1 item)</h3>
+                        <h3 className='mb-3 font-bold text-xl'>Order Summary ({products.length} items)</h3>
                         <div className='flex justify-between my-4'>
                             <p>Original Price:</p>
                             <p>₹{total.toFixed(2)}</p>

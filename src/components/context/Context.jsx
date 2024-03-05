@@ -66,50 +66,50 @@ export const Context = ({ children }) => {
     };
 
     // Decrement item
-    const setDecrease = (type) => {
-        const updatedProducts = state.products.map((currentProduct) => {
-            if (currentProduct.type === type && currentProduct.amount > 1) {
-                return {...currentProduct, amount: currentProduct.amount - 1 }; 
-            }
-            return currentProduct;
-        });
-        updatePrice(updatedProducts);
+    // const setDecrease = (type) => {
+    //     const updatedProducts = state.products.map((currentProduct) => {
+    //         if (currentProduct.type === type && currentProduct.amount > 1) {
+    //             return {...currentProduct, amount: currentProduct.amount - 1 }; 
+    //         }
+    //         return currentProduct;
+    //     });
+    //     updatePrice(updatedProducts);
 
-        dispatch({
-            type: "set_Decrement",
-            payload: updatedProducts,
-        });
-    };
+    //     dispatch({
+    //         type: "set_Decrement",
+    //         payload: updatedProducts,
+    //     });
+    // };
 
     // Increment item
-    const setIncrease = (type) => {
-        const updatedProducts = state.products.map((currentProduct) => {
-            if (currentProduct.type === type) {
-                return { ...currentProduct, amount: currentProduct.amount + 1 };
-            }
-            return currentProduct;
-        });
-        updatePrice(updatedProducts);
+    // const setIncrease = (type) => {
+    //     const updatedProducts = state.products.map((currentProduct) => {
+    //         if (currentProduct.type === type) {
+    //             return { ...currentProduct, amount: currentProduct.amount + 1 };
+    //         }
+    //         return currentProduct;
+    //     });
+    //     updatePrice(updatedProducts);
 
-        dispatch({
-            type: "set_Increment",
-            payload: updatedProducts,
-        });
-    };
+    //     dispatch({
+    //         type: "set_Increment",
+    //         payload: updatedProducts,
+    //     });
+    // };
 
 
     const calculateTotal = (products) => {
         let total = 0;
         products.forEach((product) => {
-            total += product.price * product.amount;
+            total += product.newPrice * product.amount;
         });
         return total;
     };
 
     // quantity increment
-    const incrementItem = (type) => {
+    const incrementItem = (id) => {
         const updatedProducts = state.products.map((product) => {
-            if (product.type === type) {
+            if (product.id === id) {
                 return { ...product, amount: product.amount + 1 };
             }
             return product;
@@ -124,9 +124,9 @@ export const Context = ({ children }) => {
     };
 
     // quantity decrement...
-    const decrementItem = (type) => {
+    const decrementItem = (id) => {
         const updatedProducts = state.products.map((product) => {
-            if (product.type === type && product.amount > 1) {
+            if (product.id === id && product.amount > 1) {
                 return { ...product, amount: product.amount - 1 };
             }
             return product;
@@ -178,8 +178,8 @@ export const Context = ({ children }) => {
         products: state.products,
         addToCart,
         removeFromCart,
-        setDecrease,
-        setIncrease,
+        // setDecrease,
+        // setIncrease,
         userData,
         updateUserData,
         incrementItem,

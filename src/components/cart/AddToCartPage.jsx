@@ -5,7 +5,7 @@ import { Cart } from '../context/Context';
 
 
 const AddToCartPage = ({ items }) => {
-    const { removeFromCart } = useContext(Cart);
+    const { removeFromCart, incrementItem, decrementItem } = useContext(Cart);
 
     const handleRemove = () => {
         removeFromCart(items);
@@ -36,7 +36,13 @@ const AddToCartPage = ({ items }) => {
                         <p className='underline underline-offset-8 mb-5 whitespace-nowrap text-base'>(Incl. all Taxes)</p>
                         <del className='font-bold text-2xl'>{items.prevPrice}</del>
                         <p className='text-slate-500 text-sm underline underline-offset-8'>{items.saving}</p>
+                        <div className='mt-5 whitespace-nowrap'>
+                            <button className="text-2xl font-bold  bg-teal-500 mr-2 px-1" onClick={() => decrementItem(items.id)}>-</button>
+                            <span className="text-lg font-bold mr-2">{items.amount}</span>
+                            <button  className="text-2xl font-bold  bg-teal-500 px-1" onClick={() => incrementItem(items.id)}>+</button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
