@@ -10,10 +10,14 @@ import { Link } from 'react-router-dom';
 
 function AccessoriesPage() {
     const [itemsToShow, setItemsToShow] = useState(9);
-    const { addToCart } = useContext(Cart);
+    const { addToCart, cartItems } = useContext(Cart);
     
     const addCart = (item) => {
         addToCart(item)
+    }
+
+    const isItemInCart = (itemId) => {
+        return cartItems && cartItems.some((cartItem) => cartItem.id === itemId)
     }
 
     const { selectedCategories, selectedBrands, selectedRanges, selectedModes, searchTerm } = useContext(FilterContext)
@@ -61,7 +65,16 @@ function AccessoriesPage() {
                             <p className='ml-2 text-sm'>{items.delivery}</p>
                         </div>
                         <div className='mt-3'>
-                            <button onClick={() => {addCart(items)}} className='bg-teal-500 text-black rounded-lg py-1 px-3 hover:text-white'>Add to Cart</button>
+                            {isItemInCart(items.id) ?(
+                                <Link to="/cart">
+                                    <button className='bg-teal-500 text-black rounded-lg py-1 px-3 hover:text-white'>
+                                        Item added Go to Cart
+                                    </button>
+                                </Link>
+                            ):(
+                                <button onClick={() => {addCart(items)}} className='bg-teal-500 text-black rounded-lg py-1 px-3 hover:text-white'>Add to Cart</button>
+                            )}
+                            
                         </div>
                     </div>
                 ))}

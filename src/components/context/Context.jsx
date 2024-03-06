@@ -40,10 +40,8 @@ export const Context = ({ children }) => {
         }       
     };
     const closeLoginPrompt = () => {
-    // Function to close the login prompt
-    setShowLoginPrompt(false);
-};
-
+        setShowLoginPrompt(false);
+    };
     
     // Remove item from cart
     const removeFromCart = (item) => {
@@ -64,39 +62,6 @@ export const Context = ({ children }) => {
             payload: total,
         });
     };
-
-    // Decrement item
-    // const setDecrease = (type) => {
-    //     const updatedProducts = state.products.map((currentProduct) => {
-    //         if (currentProduct.type === type && currentProduct.amount > 1) {
-    //             return {...currentProduct, amount: currentProduct.amount - 1 }; 
-    //         }
-    //         return currentProduct;
-    //     });
-    //     updatePrice(updatedProducts);
-
-    //     dispatch({
-    //         type: "set_Decrement",
-    //         payload: updatedProducts,
-    //     });
-    // };
-
-    // Increment item
-    // const setIncrease = (type) => {
-    //     const updatedProducts = state.products.map((currentProduct) => {
-    //         if (currentProduct.type === type) {
-    //             return { ...currentProduct, amount: currentProduct.amount + 1 };
-    //         }
-    //         return currentProduct;
-    //     });
-    //     updatePrice(updatedProducts);
-
-    //     dispatch({
-    //         type: "set_Increment",
-    //         payload: updatedProducts,
-    //     });
-    // };
-
 
     const calculateTotal = (products) => {
         let total = 0;
@@ -157,8 +122,7 @@ export const Context = ({ children }) => {
     };
 
     useEffect(() => {
-        setUserData(JSON.parse(localStorage.getItem("user_data")));
-        
+        setUserData(JSON.parse(localStorage.getItem("user_data")));        
         const storedCartItems = JSON.parse(localStorage.getItem("cart_items"));
         if (storedCartItems) {
             dispatch({
@@ -176,10 +140,9 @@ export const Context = ({ children }) => {
     const value = {
         total: state.total,
         products: state.products,
+        cartItems: state.products,
         addToCart,
         removeFromCart,
-        // setDecrease,
-        // setIncrease,
         userData,
         updateUserData,
         incrementItem,
