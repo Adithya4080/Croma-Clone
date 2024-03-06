@@ -140,7 +140,6 @@ export const Context = ({ children }) => {
     const value = {
         total: state.total,
         products: state.products,
-        cartItems: state.products,
         addToCart,
         removeFromCart,
         userData,
