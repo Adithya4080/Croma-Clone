@@ -8,6 +8,7 @@ export const Cart = createContext();
 export const Context = ({ children }) => {
     const [state, dispatch] = useReducer(storeReducer, initialState);
     const [showLoginPrompt, setShowLoginPrompt] = useState(false);
+    const [showAddToCartPrompt, setShowAddToCartPrompt] = useState(false);
 
     const updateLocalStorage = (updatedProducts) => {
         localStorage.setItem("cart_items", JSON.stringify(updatedProducts))
@@ -26,6 +27,10 @@ export const Context = ({ children }) => {
                     updatedItem,
                     ...state.products.slice(existingItemIndex + 1),
                 ];
+                setShowAddToCartPrompt(true);
+                setTimeout(() => {
+                    setShowAddToCartPrompt(false)
+                }, 3000);
             } else {
                 updatedProducts = [...state.products, { ...item, amount: 1 }]
             }
@@ -153,6 +158,11 @@ export const Context = ({ children }) => {
     return (
         <Cart.Provider value={value}>
             {children}
+            {showAddToCartPrompt && (
+                <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                    <h2 className='bg-teal-500 text-white'>Item added to Cart</h2>
+                </div>
+            )}
             {showLoginPrompt && (
                 // Render a login prompt component when the user is not logged in
                 <LoginPrompt closeLoginPrompt={closeLoginPrompt} />
