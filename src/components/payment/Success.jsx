@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import { Helmet } from 'react-helmet';
 import Navbar from '../navbar/Navbar';
 import { Link } from 'react-router-dom';
 import Footer from '../footer/Footer';
@@ -15,6 +16,9 @@ function Success() {
 
   return (
     <>
+      <Helmet>
+        <title>Success | Payment Successful | Croma</title>
+      </Helmet>
       <Navbar />
       <div className='my-7'>
         <div className='flex justify-center text-center'>
