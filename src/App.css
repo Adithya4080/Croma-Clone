@@ -41,4 +41,6 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb{
     background-color: teal;
   }
-  
+  .whites-bg{
+    background-color: white;
+  }
