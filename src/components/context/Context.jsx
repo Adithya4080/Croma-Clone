@@ -158,12 +158,8 @@ export const Context = ({ children }) => {
     return (
         <Cart.Provider value={value}>
             {children}
-            {showAddToCartPrompt && (
-                <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-                    <h2 className='bg-teal-500 text-white'>Item added to Cart</h2>
-                </div>
-            )}
-            {showLoginPrompt && (
+            {showAddToCartPrompt && 
+            showLoginPrompt && (
                 // Render a login prompt component when the user is not logged in
                 <LoginPrompt closeLoginPrompt={closeLoginPrompt} />
             )}
